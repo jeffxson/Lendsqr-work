@@ -1,0 +1,94 @@
+$primary: #545f7d;
+$secondary: #39cdcc;
+$secondary1: #213f7d;
+
+.boxs-container {
+  display: flex;
+  justify-content: space-between;
+  .box1 {
+    background-color: white;
+    padding: 8px;
+    padding-left: 14px;
+    height: 140px;
+    width: 200px;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 5px;
+  }
+  p {
+    padding: 11px 7px 9px 7px;
+    text-align: center;
+    width: 30px;
+    border-radius: 50%;
+  }
+}
+.paginate {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-top: 20px;
+}
+select {
+  background-color: #d5d2d2;
+  padding: 5px;
+  margin: 10px;
+  border: none;
+}
+table {
+  width: 1150px;
+  margin-top: 60px;
+  border-collapse: collapse;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  font-size: 13px;
+}
+
+th,
+td {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+th {
+  text-align: left;
+}
+
+thead {
+  th {
+    background-color: white;
+    color: $primary;
+  }
+}
+
+tbody {
+  tr {
+    background-color: white;
+    &:hover {
+      background-color: whitesmoke;
+      color: $primary;
+    }
+  }
+  td {
+    position: relative;
+    color: $primary;
+    border-bottom: 1px solid rgb(233, 231, 231);
+    &:hover {
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -9999px;
+        bottom: -9999px;
+        background-color: white;
+        color: $primary;
+        z-index: -1;
+      }
+    }
+  }
+}
