@@ -4,12 +4,12 @@ $secondary: #39cdcc;
 
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
+  border-radius: 7px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: $secondary;
-  border-radius: 10px;
+  border-radius: 7px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -29,7 +29,52 @@ h4 {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+select {
+  font-size: 13px;
+  border: 1px solid rgba(84, 95, 125, 0.15);
+  border-radius: 5px;
+  height: 32px;
+  padding: 3px;
+  padding-left: 10px;
+  font-weight: bolder;
+  color: #545f7d;
+  font-size: 13px;
+  font-family: "Avenir Next LT Pro", sans-serif;
+  letter-spacing: 0.9px;
+}
 input[type="email"] {
+  font-size: 13px;
+  border: 1px solid rgba(84, 95, 125, 0.15);
+  border-radius: 5px;
+  height: 35px;
+  padding: 3px;
+  padding-left: 10px;
+
+  font-weight: bolder;
+
+  color: #545f7d;
+  font-size: 13px;
+  font-family: "Avenir Next LT Pro", sans-serif;
+  letter-spacing: 0.9px;
+  width: 350px;
+}
+input[type="number"] {
+  font-size: 13px;
+  border: 1px solid rgba(84, 95, 125, 0.15);
+  border-radius: 5px;
+  height: 35px;
+  padding: 3px;
+  padding-left: 10px;
+
+  font-weight: bolder;
+
+  color: #545f7d;
+  font-size: 13px;
+  font-family: "Avenir Next LT Pro", sans-serif;
+  letter-spacing: 0.9px;
+  width: 350px;
+}
+input[type="date"] {
   font-size: 13px;
   border: 1px solid rgba(84, 95, 125, 0.15);
   border-radius: 5px;

@@ -1,0 +1,45 @@
+$primary: #545f7d;
+$secondary: #39cdcc;
+$secondary1: #213f7d;
+$secondary2: #e4033b;
+
+.breadcrums {
+  color: $secondary1;
+}
+.header-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
+  .button2 {
+    border: none;
+    color: $secondary2;
+    border: 1px solid $secondary2;
+  }
+  button {
+    font-size: 15px;
+    height: 40px;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+    color: $secondary;
+    border: 1px solid $secondary;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+.user-container {
+  display: flex;
+  background-color: white;
+  padding: 15px 15px 0px 15px;
+  .profile {
+    display: flex;
+  }
+}
+.profile-pic {
+  border-radius: 50px;
+}

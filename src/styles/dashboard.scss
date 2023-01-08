@@ -26,23 +26,23 @@ $secondary1: #213f7d;
   }
 }
 .paginate {
+  select {
+    background-color: #d5d2d2;
+    padding: 5px;
+    margin: 10px;
+    border: none;
+    height: 32px;
+  }
   display: flex;
   justify-content: space-between;
   font-size: 13px;
   margin-top: 20px;
 }
-select {
-  background-color: #d5d2d2;
-  padding: 5px;
-  margin: 10px;
-  border: none;
-}
+
 table {
-  width: 1150px;
+  width: 1000px;
   margin-top: 60px;
   border-collapse: collapse;
-  overflow-y: scroll;
-  overflow-x: scroll;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   font-size: 13px;
 }
@@ -90,5 +90,63 @@ tbody {
         z-index: -1;
       }
     }
+  }
+}
+.status {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 16px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.filter-container {
+  width: 280px;
+  padding: 30px;
+  border: transparent;
+  position: absolute;
+  left: 300px;
+  top: 150px;
+  z-index: 10;
+  background: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+  select {
+    width: 270px;
+    background-color: whitesmoke;
+    height: 42px;
+  }
+  input {
+    width: 250px;
+    background-color: whitesmoke;
+  }
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    .button2 {
+      background: $secondary;
+      border: none;
+      color: white;
+    }
+    button {
+      padding: 10px;
+      font-size: 15px;
+      padding-left: 30px;
+      padding-right: 30px;
+      letter-spacing: 1px;
+      background-color: transparent;
+      border-radius: 5px;
+      color: $secondary1;
+      border: 1px solid $secondary1;
+    }
+  }
+  .left {
+    display: flex;
+    color: red;
+    cursor: pointer;
+    justify-content: right;
   }
 }
