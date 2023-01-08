@@ -16,30 +16,33 @@ const Login = () => {
         <img src={login_pic} alt="login image" />
       </div>
       <div className="second-box">
-        <h3>
-          <b> Welcome</b>
-        </h3>
-        <div className="text1">Enter details to login.</div>
-        <input type="email" placeholder="Email" />
-        <label>
-          <input
-            type={showPassword ? "text" : "password"}
-            placeholder="Password"
-          />
-          <span onClick={handlePassword}>
-            <button className="passwordbutton">
-              <b>{showPassword ? "HIDE" : "SHOW"} </b>
-            </button>
-          </span>
-        </label>
-        <div className="passwordbutton1">
-          {" "}
-          <b>FORGOT PASSWORD? </b>
+        <div>
+          <div className="logo">{logo} </div>
+          <h3>
+            <b> Welcome</b>
+          </h3>
+          <div className="text1">Enter details to login.</div>
+          <input type="email" placeholder="Email" />
+          <label>
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+            />
+            <span onClick={handlePassword}>
+              <button className="passwordbutton">
+                <b>{showPassword ? "HIDE" : "SHOW"} </b>
+              </button>
+            </span>
+          </label>
+          <div className="passwordbutton1">
+            {" "}
+            <b>FORGOT PASSWORD? </b>
+          </div>
+          <button className="login-button">
+            {" "}
+            <b> LOG IN</b>
+          </button>
         </div>
-        <button className="login-button">
-          {" "}
-          <b> LOG IN</b>
-        </button>
       </div>
     </div>
   );

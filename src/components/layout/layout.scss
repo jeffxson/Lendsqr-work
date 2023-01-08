@@ -4,11 +4,12 @@ $secondary1: #213f7d;
 
 ::-webkit-scrollbar {
   width: 7px;
+  height: 14px;
 }
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 25px;
+  padding: 13px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
   button {
@@ -23,6 +24,11 @@ $secondary1: #213f7d;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 3px;
   }
+  .input-div {
+    @media (max-width: 860px) {
+      display: none;
+    }
+  }
 
   .left-container {
     display: flex;
@@ -35,6 +41,10 @@ $secondary1: #213f7d;
       margin: 10px;
       margin-top: 17px;
       display: flex;
+
+      @media (max-width: 860px) {
+        display: none;
+      }
     }
     .bell {
       margin: 9px;
@@ -58,8 +68,11 @@ $secondary1: #213f7d;
   overflow-y: scroll;
   width: 100%;
   padding: 30px;
+  @media (max-width: 560px) {
+    padding: 10px;
+  }
   padding-bottom: 0px;
-  height: 80vh;
+  height: 82vh;
   padding-left: 50px;
   background: #f6f6f6;
 }
@@ -68,8 +81,21 @@ $secondary1: #213f7d;
   width: 340px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   padding-top: 20px;
-  height: 80vh;
+  height: 85vh;
   overflow-y: scroll;
+  @media (max-width: 560px) {
+    position: absolute;
+    z-index: 100;
+    background-color: white;
+    width: 250px;
+  }
+
+  .colasps {
+    display: flex;
+    justify-content: right;
+    margin: 10px;
+    margin-top: 0px;
+  }
   .header-text {
     font-size: small;
     margin-bottom: 15px;
@@ -115,4 +141,10 @@ $secondary1: #213f7d;
       margin-top: 3px;
     }
   }
+}
+.navbar2 {
+  width: auto;
+  padding: 10px;
+  overflow-y: scroll;
+  height: 85vh;
 }

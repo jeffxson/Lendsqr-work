@@ -1,30 +1,17 @@
-import React, { useEffect, useState } from "react";
 import Layout from "../components/layout/layout";
 import "../styles/userdetails.scss";
 import { BiArrowBack } from "react-icons/bi";
 import { BsStarFill, BsStar } from "react-icons/bs";
-import axios from "axios";
+import { useParams } from "react-router-dom";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Link } from "react-router-dom";
 
 const UserDetails = () => {
-  const [users, setUsers] = useState<any>([]);
-  const [filter, setFilter] = useState(false);
+  const AllUsers: any = localStorage.getItem("users") || [];
+  const allUsersArry = JSON.parse(AllUsers);
+  const { id } = useParams();
 
-  const handlefilter = (event: any) => {
-    setFilter(!filter);
-  };
-
-  useEffect(() => {
-    axios
-      .get(`https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/6`)
-      .then((res: any) => {
-        setUsers(res.data);
-      })
-      .catch((err: any) => {
-        console.log(err);
-      });
-  }, [users]);
+  const users = allUsersArry.find((o: { id: string }) => o.id === id);
 
   return (
     <Layout>

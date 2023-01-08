@@ -10,6 +10,7 @@ $secondary: #39cdcc;
 ::-webkit-scrollbar-thumb {
   background: $secondary;
   border-radius: 7px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

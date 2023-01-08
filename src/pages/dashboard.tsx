@@ -50,11 +50,12 @@ const Dashboard = () => {
       .get(`https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users`)
       .then((res: any) => {
         setUsers(res.data);
+        localStorage.setItem("users", JSON.stringify(res.data));
       })
       .catch((err: any) => {
         console.log(err);
       });
-  }, [users]);
+  }, []);
 
   const handleSelector = (e: any) => {
     setItemsPerPage(e.target.value);
@@ -67,13 +68,13 @@ const Dashboard = () => {
       </h3>
 
       <div className="boxs-container">
-        <Boxes names="USERS" numbers="4,566" color="#DF18FF" bg="#fce8ff" />
         <Boxes
-          names="ACTIVE USERS"
-          numbers="5,466"
-          color="#5718FF"
-          bg="#eee8ff"
+          names="USERS"
+          numbers={users && users.length}
+          color="#DF18FF"
+          bg="#fce8ff"
         />
+        <Boxes names="ACTIVE USERS" numbers="30" color="#5718FF" bg="#eee8ff" />
         <Boxes
           names="USERS WITH LOANS"
           numbers="12,566"
@@ -89,196 +90,208 @@ const Dashboard = () => {
       </div>
       <div>
         <div className="containers">
-          <table>
-            <thead>
-              <tr>
-                <th>
-                  <b>
-                    ORGANIZATION
-                    <BiFilter
-                      onClick={handlefilter}
-                      size="20px"
-                      style={{ marginBottom: "-5px" }}
-                    />
-                  </b>
-                </th>
-                <th>
-                  <b>
-                    USERNAME
-                    <BiFilter
-                      onClick={handlefilter}
-                      size="20px"
-                      style={{ marginBottom: "-5px" }}
-                    />
-                  </b>
-                </th>
-                <th>
-                  <b>
-                    EMAIL
-                    <BiFilter
-                      onClick={handlefilter}
-                      size="20px"
-                      style={{ marginBottom: "-5px" }}
-                    />
-                  </b>
-                </th>
-                <th>
-                  <b>
-                    PHONE NUMBER
-                    <BiFilter
-                      onClick={handlefilter}
-                      size="20px"
-                      style={{ marginBottom: "-5px" }}
-                    />
-                  </b>
-                </th>
-                <th>
-                  <b>
-                    DATE JOINED
-                    <BiFilter
-                      onClick={handlefilter}
-                      size="20px"
-                      style={{ marginBottom: "-5px" }}
-                    />
-                  </b>
-                </th>
-                <th>
-                  <b>
-                    STATUS
-                    <BiFilter
-                      onClick={handlefilter}
-                      size="20px"
-                      style={{ marginBottom: "-5px" }}
-                    />
-                  </b>
-                </th>
-                <th>
-                  <b>?</b>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {currentItems.length > 0 ? (
-                currentItems.map((data) => (
+          <div className="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    <b>
+                      ORGANIZATION
+                      <BiFilter
+                        onClick={handlefilter}
+                        size="20px"
+                        style={{ marginBottom: "-5px" }}
+                      />
+                    </b>
+                  </th>
+                  <th>
+                    <b>
+                      USERNAME
+                      <BiFilter
+                        onClick={handlefilter}
+                        size="20px"
+                        style={{ marginBottom: "-5px" }}
+                      />
+                    </b>
+                  </th>
+                  <th>
+                    <b>
+                      EMAIL
+                      <BiFilter
+                        onClick={handlefilter}
+                        size="20px"
+                        style={{ marginBottom: "-5px" }}
+                      />
+                    </b>
+                  </th>
+                  <th>
+                    <b>
+                      PHONE NUMBER
+                      <BiFilter
+                        onClick={handlefilter}
+                        size="20px"
+                        style={{ marginBottom: "-5px" }}
+                      />
+                    </b>
+                  </th>
+                  <th>
+                    <b>
+                      DATE JOINED
+                      <BiFilter
+                        onClick={handlefilter}
+                        size="20px"
+                        style={{ marginBottom: "-5px" }}
+                      />
+                    </b>
+                  </th>
+                  <th>
+                    <b>
+                      STATUS
+                      <BiFilter
+                        onClick={handlefilter}
+                        size="20px"
+                        style={{ marginBottom: "-5px" }}
+                      />
+                    </b>
+                  </th>
+                  <th>
+                    <b>?</b>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {currentItems.length > 0 ? (
+                  currentItems.map((data) => (
+                    <tr>
+                      <td>
+                        <Link to={`/user-details/${data.id}`}>
+                          {data.orgName}
+                        </Link>
+                      </td>
+
+                      <td>
+                        {" "}
+                        <Link to={`/user-details/${data.id}`}>
+                          {" "}
+                          {data.userName}{" "}
+                        </Link>
+                      </td>
+                      <td>
+                        <Link to={`/user-details/${data.id}`}>
+                          {data.email}{" "}
+                        </Link>
+                      </td>
+                      <td>
+                        <Link to={`/user-details/${data.id}`}>
+                          {" "}
+                          {data.phoneNumber.slice(0, 13)}{" "}
+                        </Link>
+                      </td>
+                      <td>
+                        <Link to={`/user-details/${data.id}`}>
+                          {moment
+                            .default(data.createdAt)
+                            .format("MMM DD, YYYY HH:mm")}
+                        </Link>
+                      </td>
+                      <td>
+                        <Link to={`/user-details/${data.id}`}>
+                          {Date.now() > Date.parse(data.lastActiveDate) ? (
+                            <Status
+                              name="Inactive"
+                              color="#545F7D"
+                              bg="#f5f5f7"
+                            />
+                          ) : Date.now() === Date.parse(data.lastActiveDate) ? (
+                            <Status
+                              name="Pending"
+                              color="#39CD62"
+                              bg="#f1faf4"
+                            />
+                          ) : Date.parse(data.lastActiveDate) === 0 ? (
+                            <Status
+                              name="Blacklisted"
+                              color="#39CD62"
+                              bg="#f1faf4"
+                            />
+                          ) : (
+                            <Status
+                              name="Active"
+                              color="#39CD62"
+                              bg="#f1faf4"
+                            />
+                          )}
+                        </Link>
+                      </td>
+                      <td>
+                        <BsThreeDotsVertical />
+                      </td>
+                    </tr>
+                  ))
+                ) : (
                   <tr>
                     <td>
-                      <Link to={`/user-details/${data.id}`}>
-                        {data.orgName}
-                      </Link>
-                    </td>
-
-                    <td>
-                      {" "}
-                      <Link to={`/user-details/${data.id}`}>
-                        {" "}
-                        {data.userName}{" "}
-                      </Link>
+                      <Skeleton count={10} height="6vh" width="100%" />
                     </td>
                     <td>
-                      <Link to={`/user-details/${data.id}`}>{data.email} </Link>
+                      <Skeleton count={10} height="6vh" width="100%" />
                     </td>
                     <td>
-                      <Link to={`/user-details/${data.id}`}>
-                        {" "}
-                        {data.phoneNumber.slice(0, 13)}{" "}
-                      </Link>
+                      <Skeleton count={10} height="6vh" width="100%" />
                     </td>
                     <td>
-                      <Link to={`/user-details/${data.id}`}>
-                        {moment
-                          .default(data.createdAt)
-                          .format("MMM DD, YYYY HH:mm")}
-                      </Link>
+                      <Skeleton count={10} height="6vh" width="100%" />
                     </td>
                     <td>
-                      <Link to={`/user-details/${data.id}`}>
-                        {Date.now() > Date.parse(data.lastActiveDate) ? (
-                          <Status
-                            name="Inactive"
-                            color="#545F7D"
-                            bg="#f5f5f7"
-                          />
-                        ) : Date.now() === Date.parse(data.lastActiveDate) ? (
-                          <Status name="Pending" color="#39CD62" bg="#f1faf4" />
-                        ) : Date.parse(data.lastActiveDate) === 0 ? (
-                          <Status
-                            name="Blacklisted"
-                            color="#39CD62"
-                            bg="#f1faf4"
-                          />
-                        ) : (
-                          <Status name="Active" color="#39CD62" bg="#f1faf4" />
-                        )}
-                      </Link>
+                      <Skeleton count={10} height="6vh" width="100%" />
                     </td>
                     <td>
-                      <BsThreeDotsVertical />
+                      <Skeleton count={10} height="6vh" width="100%" />
                     </td>
                   </tr>
-                ))
+                )}
+              </tbody>
+              {filter ? (
+                <div className="filter-container">
+                  <div className="left">
+                    <MdCancel size="30px" onClick={handlefilter} />
+                  </div>
+                  <label>
+                    <span>Organization</span>
+                    <br></br>
+                    <select>
+                      <option>Select</option>
+                    </select>
+                  </label>
+                  <br></br>
+                  <Inputers names="Username" place="User" type="text" />
+                  <Inputers names="Email" place="Email" type="email" />
+                  <Inputers names="Date" place="Date" type="date" />
+                  <Inputers
+                    names="Phone Number"
+                    place="Phone Number"
+                    type="number"
+                  />
+                  <br></br>
+                  <label>
+                    <span>Status</span>
+                    <br></br>
+                    <select>
+                      <option>Select</option>
+                    </select>
+                  </label>
+                  <div className="button-container">
+                    <button>
+                      <b>Reset </b>
+                    </button>
+                    <button className="button2">Filter</button>
+                  </div>
+                </div>
               ) : (
-                <tr>
-                  <td>
-                    <Skeleton count={10} height="6vh" width="100%" />
-                  </td>
-                  <td>
-                    <Skeleton count={10} height="6vh" width="100%" />
-                  </td>
-                  <td>
-                    <Skeleton count={10} height="6vh" width="100%" />
-                  </td>
-                  <td>
-                    <Skeleton count={10} height="6vh" width="100%" />
-                  </td>
-                  <td>
-                    <Skeleton count={10} height="6vh" width="100%" />
-                  </td>
-                  <td>
-                    <Skeleton count={10} height="6vh" width="100%" />
-                  </td>
-                </tr>
+                ""
               )}
-            </tbody>
-            {filter ? (
-              <div className="filter-container">
-                <div className="left">
-                  <MdCancel size="30px" onClick={handlefilter} />
-                </div>
-                <label>
-                  <span>Organization</span>
-                  <br></br>
-                  <select>
-                    <option>Select</option>
-                  </select>
-                </label>
-                <br></br>
-                <Inputers names="Username" place="User" type="text" />
-                <Inputers names="Email" place="Email" type="email" />
-                <Inputers names="Date" place="Date" type="date" />
-                <Inputers
-                  names="Phone Number"
-                  place="Phone Number"
-                  type="number"
-                />
-                <br></br>
-                <label>
-                  <span>Status</span>
-                  <br></br>
-                  <select>
-                    <option>Select</option>
-                  </select>
-                </label>
-                <div className="button-container">
-                  <button>
-                    <b>Reset </b>
-                  </button>
-                  <button className="button2">Filter</button>
-                </div>
-              </div>
-            ) : (
-              ""
-            )}
-          </table>
+            </table>
+          </div>
         </div>
         <div className="paginate">
           <div>

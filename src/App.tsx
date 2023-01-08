@@ -1,5 +1,5 @@
 import "../src/styles/styles.scss";
-import { Routes, Route, Outlet, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "./pages/login";
 import UserDetails from "./pages/userDetails";
 import Dashboard from "./pages/dashboard";
