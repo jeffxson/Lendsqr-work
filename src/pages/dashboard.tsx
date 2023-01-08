@@ -10,6 +10,7 @@ import Pagination from "../components/pagenation";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import * as moment from "moment";
+import { Link } from "react-router-dom";
 
 export interface InitPost {
   [x: string]: any;
@@ -160,30 +161,55 @@ const Dashboard = () => {
               {currentItems.length > 0 ? (
                 currentItems.map((data) => (
                   <tr>
-                    <td>{data.orgName}</td>
-                    <td>{data.userName}</td>
-                    <td>{data.email}</td>
-                    <td>{data.phoneNumber.slice(0, 13)} </td>
+                    <td>
+                      <Link to={`/user-details/${data.id}`}>
+                        {data.orgName}
+                      </Link>
+                    </td>
+
                     <td>
                       {" "}
-                      {moment
-                        .default(data.createdAt)
-                        .format("MMM DD, YYYY HH:mm")}
+                      <Link to={`/user-details/${data.id}`}>
+                        {" "}
+                        {data.userName}{" "}
+                      </Link>
                     </td>
                     <td>
-                      {Date.now() > Date.parse(data.lastActiveDate) ? (
-                        <Status name="Inactive" color="#545F7D" bg="#f5f5f7" />
-                      ) : Date.now() === Date.parse(data.lastActiveDate) ? (
-                        <Status name="Pending" color="#39CD62" bg="#f1faf4" />
-                      ) : Date.parse(data.lastActiveDate) === 0 ? (
-                        <Status
-                          name="Blacklisted"
-                          color="#39CD62"
-                          bg="#f1faf4"
-                        />
-                      ) : (
-                        <Status name="Active" color="#39CD62" bg="#f1faf4" />
-                      )}
+                      <Link to={`/user-details/${data.id}`}>{data.email} </Link>
+                    </td>
+                    <td>
+                      <Link to={`/user-details/${data.id}`}>
+                        {" "}
+                        {data.phoneNumber.slice(0, 13)}{" "}
+                      </Link>
+                    </td>
+                    <td>
+                      <Link to={`/user-details/${data.id}`}>
+                        {moment
+                          .default(data.createdAt)
+                          .format("MMM DD, YYYY HH:mm")}
+                      </Link>
+                    </td>
+                    <td>
+                      <Link to={`/user-details/${data.id}`}>
+                        {Date.now() > Date.parse(data.lastActiveDate) ? (
+                          <Status
+                            name="Inactive"
+                            color="#545F7D"
+                            bg="#f5f5f7"
+                          />
+                        ) : Date.now() === Date.parse(data.lastActiveDate) ? (
+                          <Status name="Pending" color="#39CD62" bg="#f1faf4" />
+                        ) : Date.parse(data.lastActiveDate) === 0 ? (
+                          <Status
+                            name="Blacklisted"
+                            color="#39CD62"
+                            bg="#f1faf4"
+                          />
+                        ) : (
+                          <Status name="Active" color="#39CD62" bg="#f1faf4" />
+                        )}
+                      </Link>
                     </td>
                     <td>
                       <BsThreeDotsVertical />

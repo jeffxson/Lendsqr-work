@@ -33,13 +33,72 @@ $secondary2: #e4033b;
   }
 }
 .user-container {
-  display: flex;
   background-color: white;
-  padding: 15px 15px 0px 15px;
-  .profile {
-    display: flex;
+  padding: 20px 45px 0px 25px;
+  margin: 10px 0px 50px 0px;
+
+  h5 {
+    font-size: 15px;
+    margin: 0;
   }
-}
-.profile-pic {
-  border-radius: 50px;
+  .header-text {
+    font-size: 11px;
+  }
+
+  .user-details {
+    .profile-pic {
+      border-radius: 50px;
+    }
+    display: flex;
+    .profile {
+      display: flex;
+      border-right: 1px solid whitesmoke;
+      .names {
+        margin: 10px 20px 10px 20px;
+      }
+    }
+
+    .User-Tier {
+      padding: 0px 25px 15px 25px;
+      border-right: 1px solid whitesmoke;
+      .star {
+        color: #e9b200;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    .User-Tier2 {
+      padding: 10px 25px 15px 25px;
+      .star {
+        color: #e9b200;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+  .user-nav {
+    display: flex;
+    justify-content: space-between;
+    p {
+      margin-bottom: 0px;
+      padding: 10px 30px 10px 30px;
+      font-weight: 700;
+    }
+    .seleted {
+      border-bottom: 3px solid $secondary;
+    }
+  }
+  .text-containers {
+    display: flex;
+    justify-content: space-between;
+  }
+  .text-contest {
+    font-size: 12px;
+    margin: 0px;
+    margin-bottom: 10px;
+  }
+  hr {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
 }
