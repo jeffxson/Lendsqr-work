@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/layout/layout";
 import "../styles/dashboard.scss";
-import { FaUsers } from "react-icons/fa";
+import { FaUsers, FaCoins } from "react-icons/fa";
 import { BiFilter } from "react-icons/bi";
+import { BsPeopleFill } from "react-icons/bs";
 import { MdCancel } from "react-icons/md";
+import { HiOutlineDocumentText } from "react-icons/hi";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import axios from "axios";
 import Pagination from "../components/pagenation";
@@ -73,19 +75,28 @@ const Dashboard = () => {
           numbers={users && users.length}
           color="#DF18FF"
           bg="#fce8ff"
+          icon={<BsPeopleFill />}
         />
-        <Boxes names="ACTIVE USERS" numbers="30" color="#5718FF" bg="#eee8ff" />
+        <Boxes
+          names="ACTIVE USERS"
+          numbers="30"
+          color="#5718FF"
+          bg="#eee8ff"
+          icon={<FaUsers />}
+        />
         <Boxes
           names="USERS WITH LOANS"
           numbers="12,566"
           color="#F55F44"
           bg="#feefec"
+          icon={<HiOutlineDocumentText />}
         />
         <Boxes
           names="USERS WITH SAVINGS"
           numbers="105,566"
           color="#FF3366"
           bg="#ffebf0"
+          icon={<FaCoins />}
         />
       </div>
       <div>
@@ -317,12 +328,12 @@ const Dashboard = () => {
 
 export default Dashboard;
 
-export const Boxes = ({ color, names, numbers, bg }: any) => {
+export const Boxes = ({ color, names, numbers, bg, icon }: any) => {
   return (
     <>
       <div className="box1">
-        <p style={{ color: `${color}`, background: `${bg}` }}>
-          <FaUsers size="20px" />
+        <p style={{ color: `${color}`, background: `${bg}`, fontSize: "20px" }}>
+          {icon}
         </p>
         {names}
         <h4>{numbers}</h4>
