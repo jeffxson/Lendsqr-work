@@ -65,14 +65,13 @@ $secondary1: #213f7d;
   display: flex;
 }
 .app-content {
-  overflow-y: scroll;
   width: 100%;
   padding: 30px;
   @media (max-width: 560px) {
     padding: 10px;
   }
   padding-bottom: 0px;
-  height: 82vh;
+  height: auto;
   padding-left: 50px;
   background: #f6f6f6;
 }
@@ -81,8 +80,7 @@ $secondary1: #213f7d;
   width: 340px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   padding-top: 20px;
-  height: 85vh;
-  overflow-y: scroll;
+  height: auto;
   @media (max-width: 560px) {
     position: absolute;
     z-index: 100;

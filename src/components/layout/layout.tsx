@@ -30,6 +30,7 @@ import { MdPayment } from "react-icons/md";
 import { VscTriangleDown, VscBell, VscChevronDown } from "react-icons/vsc";
 import profile from "../../images/profile.png";
 import "./layout.scss";
+import { Link } from "react-router-dom";
 const Layout = ({ children }: any) => {
   const [colaps, setColaps] = useState(false);
   const handleColaps = (event: any) => {
@@ -39,7 +40,10 @@ const Layout = ({ children }: any) => {
   return (
     <div>
       <div className="header">
-        <div>{logo}</div>
+        <Link to="/dashboard">
+          <div>{logo}</div>
+        </Link>
+
         <div className="input-div">
           <label>
             <input type="text" placeholder="Email" />

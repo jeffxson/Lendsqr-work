@@ -8,7 +8,7 @@ import { MdCancel } from "react-icons/md";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import axios from "axios";
-import Pagination from "../components/pagenation";
+import Pagination from "../components/pagination/pagenation";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import * as moment from "moment";

@@ -8,6 +8,11 @@ const Login = () => {
   const handlePassword = () => {
     setShowPassword(!showPassword);
   };
+
+  const submitHandler = (e: any) => {
+    e.preventDefault();
+    window.location.href = "/dashboard";
+  };
   return (
     <div className="login-container">
       <div className="first-box">
@@ -20,26 +25,30 @@ const Login = () => {
           <h3>
             <b> Welcome</b>
           </h3>
-          <div className="text1">Enter details to login.</div>
-          <input type="email" placeholder="Email" />
-          <div className="passwordbox">
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Password"
-            />
-            <span onClick={handlePassword}>
-              <button className="passwordbutton">
-                <b>{showPassword ? "HIDE" : "SHOW"} </b>
-              </button>
-            </span>
-          </div>
-          <div className="passwordbutton1">
-            <b>FORGOT PASSWORD? </b>
-          </div>
-          <button className="login-button">
-            {" "}
-            <b> LOG IN</b>
-          </button>
+          <form onSubmit={submitHandler}>
+            <div className="text1">Enter details to login.</div>
+            <input type="email" placeholder="Email" name="email" required />
+            <div className="passwordbox">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                name="password"
+                required
+              />
+              <span onClick={handlePassword}>
+                <button className="passwordbutton">
+                  <b>{showPassword ? "HIDE" : "SHOW"} </b>
+                </button>
+              </span>
+            </div>
+            <div className="passwordbutton1">
+              <b>FORGOT PASSWORD? </b>
+            </div>
+
+            <button type="submit" className="login-button">
+              <b> LOG IN</b>
+            </button>
+          </form>
         </div>
       </div>
     </div>
