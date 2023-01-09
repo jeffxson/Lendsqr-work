@@ -57,7 +57,11 @@ $secondary1: #213f7d;
     overflow-x: scroll;
   }
   @media (max-width: 500px) {
-    width: 300px;
+    width: 320px;
+    overflow-x: scroll;
+  }
+  @media (max-width: 300px) {
+    width: 280px;
     overflow-x: scroll;
   }
 }
