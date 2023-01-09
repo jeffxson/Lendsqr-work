@@ -133,6 +133,9 @@ tbody {
   padding: 30px;
   border: transparent;
   position: absolute;
+  @media (max-width: 500px) {
+    left: 5px;
+  }
 
   z-index: 10;
   background: white;
