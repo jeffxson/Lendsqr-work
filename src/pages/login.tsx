@@ -17,7 +17,6 @@ const Login = () => {
       </div>
       <div className="second-box">
         <div>
-          <div className="logo">{logo} </div>
           <h3>
             <b> Welcome</b>
           </h3>
@@ -35,7 +34,6 @@ const Login = () => {
             </span>
           </label>
           <div className="passwordbutton1">
-            {" "}
             <b>FORGOT PASSWORD? </b>
           </div>
           <button className="login-button">
