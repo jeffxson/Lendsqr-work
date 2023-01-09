@@ -22,7 +22,7 @@ const Login = () => {
           </h3>
           <div className="text1">Enter details to login.</div>
           <input type="email" placeholder="Email" />
-          <label>
+          <div className="passwordbox">
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Password"
@@ -32,7 +32,7 @@ const Login = () => {
                 <b>{showPassword ? "HIDE" : "SHOW"} </b>
               </button>
             </span>
-          </label>
+          </div>
           <div className="passwordbutton1">
             <b>FORGOT PASSWORD? </b>
           </div>
