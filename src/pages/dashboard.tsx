@@ -21,7 +21,6 @@ export interface InitPost {
   email: string;
   phoneNumber: string;
   created_at: Date;
-  author: string;
 }
 
 const Dashboard = () => {
@@ -103,6 +102,45 @@ const Dashboard = () => {
         <div className="containers">
           <div className="table-container">
             <table>
+              {filter ? (
+                <div className="filter-container">
+                  <div className="left">
+                    <MdCancel size="30px" onClick={handlefilter} />
+                  </div>
+                  <label>
+                    <span>Organization</span>
+                    <br></br>
+                    <select>
+                      <option>Select</option>
+                    </select>
+                  </label>
+                  <br></br>
+                  <Inputers names="Username" place="User" type="text" />
+                  <Inputers names="Email" place="Email" type="email" />
+                  <Inputers names="Date" place="Date" type="date" />
+                  <Inputers
+                    names="Phone Number"
+                    place="Phone Number"
+                    type="number"
+                  />
+                  <br></br>
+                  <label>
+                    <span>Status</span>
+                    <br></br>
+                    <select>
+                      <option>Select</option>
+                    </select>
+                  </label>
+                  <div className="button-container">
+                    <button>
+                      <b>Reset </b>
+                    </button>
+                    <button className="button2">Filter</button>
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
               <thead>
                 <tr>
                   <th>
@@ -262,45 +300,6 @@ const Dashboard = () => {
                   </tr>
                 )}
               </tbody>
-              {filter ? (
-                <div className="filter-container">
-                  <div className="left">
-                    <MdCancel size="30px" onClick={handlefilter} />
-                  </div>
-                  <label>
-                    <span>Organization</span>
-                    <br></br>
-                    <select>
-                      <option>Select</option>
-                    </select>
-                  </label>
-                  <br></br>
-                  <Inputers names="Username" place="User" type="text" />
-                  <Inputers names="Email" place="Email" type="email" />
-                  <Inputers names="Date" place="Date" type="date" />
-                  <Inputers
-                    names="Phone Number"
-                    place="Phone Number"
-                    type="number"
-                  />
-                  <br></br>
-                  <label>
-                    <span>Status</span>
-                    <br></br>
-                    <select>
-                      <option>Select</option>
-                    </select>
-                  </label>
-                  <div className="button-container">
-                    <button>
-                      <b>Reset </b>
-                    </button>
-                    <button className="button2">Filter</button>
-                  </div>
-                </div>
-              ) : (
-                ""
-              )}
             </table>
           </div>
         </div>
