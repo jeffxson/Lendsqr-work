@@ -38,7 +38,7 @@ const Layout = ({ children }: any) => {
   };
 
   return (
-    <div>
+    <div className="whole-app">
       <div className="header">
         <Link to="/dashboard">
           <div>{logo}</div>
