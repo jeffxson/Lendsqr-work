@@ -13,7 +13,7 @@ const Login = () => {
       <div className="first-box">
         <div className="logo1">{logo} </div>
 
-        <img src={login_pic} alt="login image" />
+        <img src={login_pic} alt="login" />
       </div>
       <div className="second-box">
         <div>

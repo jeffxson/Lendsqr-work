@@ -52,8 +52,12 @@ $secondary1: #213f7d;
   margin-top: 20px;
 }
 .table-container {
-  @media (max-width: 560px) {
-    width: 290px;
+  @media (max-width: 800px) {
+    width: 590px;
+    overflow-x: scroll;
+  }
+  @media (max-width: 500px) {
+    width: 300px;
     overflow-x: scroll;
   }
 }

@@ -22,6 +22,9 @@ $secondary2: #e4033b;
   }
   button {
     font-size: 15px;
+    @media (max-width: 790px) {
+      font-size: 11px;
+    }
     height: 40px;
     padding: 10px;
     background-color: transparent;
@@ -50,6 +53,10 @@ $secondary2: #e4033b;
       border-radius: 50px;
     }
     display: flex;
+    @media (max-width: 790px) {
+      flex-wrap: wrap;
+    }
+
     .profile {
       display: flex;
       border-right: 1px solid whitesmoke;
@@ -78,6 +85,9 @@ $secondary2: #e4033b;
   }
   .user-nav {
     display: flex;
+    @media (max-width: 790px) {
+      flex-wrap: wrap;
+    }
     justify-content: space-between;
     p {
       margin-bottom: 0px;
@@ -91,6 +101,9 @@ $secondary2: #e4033b;
   .text-containers {
     display: flex;
     justify-content: space-between;
+    @media (max-width: 790px) {
+      flex-wrap: wrap;
+    }
   }
   .text-contest {
     font-size: 12px;
