@@ -128,14 +128,14 @@ tbody {
   margin-top: 0px;
   margin-bottom: 0px;
 }
-//
+
 .filter-container {
   width: 280px;
   padding: 30px;
   border: transparent;
   position: absolute;
   @media (max-width: 500px) {
-    left: 5px;
+    left: 4px;
   }
 
   z-index: 10;
